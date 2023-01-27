@@ -5,14 +5,15 @@ using  namespace Microsoft :: WRL;
 
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
-void Input::Initialize(HINSTANCE hInsstance, HWND hwnd)
+void Input::Initialize(WinApp* winApp)
 {
     HRESULT result;
-
+    //借りてきたWinAppのインスタンスを記録
+    this->winApp = winApp;
     //DirectInputの初期化
     //ComPtr<IDirectInput8> directInput;
     result = DirectInput8Create(
-        hInsstance, DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&directInput, nullptr);
+        this->winApp->GetHlnstance(), DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&directInput, nullptr);
     assert(SUCCEEDED(result));
    // キーボードデバイスの生成
     //ComPtr<IDirectInputDevice8> keyboard;
@@ -22,9 +23,11 @@ void Input::Initialize(HINSTANCE hInsstance, HWND hwnd)
     assert(SUCCEEDED(result));
     // 排他制御レベルのセット
     result = keyboard->SetCooperativeLevel(
-        hwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE | DISCL_NOWINKEY);
+        this->winApp->GetHwnd(), DISCL_FOREGROUND | DISCL_NONEXCLUSIVE | DISCL_NOWINKEY);
     assert(SUCCEEDED(result));
 }
+
+
 void Input :: Update()
 {
     HRESULT result;
