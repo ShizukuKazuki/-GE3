@@ -3,6 +3,7 @@
 #include <dxgi1_6.h>
 #include <wrl.h>
 #include <vector>
+#include <chrono>
 
 class DirectXCommon
 {
@@ -30,6 +31,10 @@ private:
 	void InitializeDepthBuffer();
 	//フェンス初期化
 	void  InitializeFence();
+	//FPS固定更新
+	void InitializeFixFPS();
+	//FPS固定更新
+	void UpdateFixFPS();
 private:
 	WinApp* winApp = nullptr;
 	//デバイス関連
@@ -51,5 +56,7 @@ private:
 	//フェンス
 	Microsoft::WRL::ComPtr<ID3D12Fence> fence;
 	UINT64 fenceVal = 0;
+	//記録時間(FPS固定用)
+	std::chrono::steady_clock::time_point reference_;
 };
 
