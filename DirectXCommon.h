@@ -13,6 +13,10 @@ class DirectXCommon
 		void PreDraw();
 		//描画後処理
 		void PostDraw();
+		//Getter
+		ID3D12Device* GetDevice() const { return device.Get(); }
+		//コマンドリスト
+		ID3D12GraphicsCommandList* GetCommondList()const { return commandList.Get();}
 private:
 	//デバイス初期化
 	void InitializeDevice();
