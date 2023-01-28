@@ -9,7 +9,10 @@ class DirectXCommon
 	public: //メンバ関数
 		//初期化
 		void Initialize(WinApp* winApp);
-		void InitializeCommand();
+		//描画前処理
+		void PreDraw();
+		//描画後処理
+		void PostDraw();
 private:
 	//デバイス初期化
 	void InitializeDevice();
@@ -43,5 +46,6 @@ private:
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> dsvHeap;
 	//フェンス
 	Microsoft::WRL::ComPtr<ID3D12Fence> fence;
+	UINT64 fenceVal = 0;
 };
 
