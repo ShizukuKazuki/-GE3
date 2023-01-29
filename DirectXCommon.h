@@ -4,7 +4,7 @@
 #include <wrl.h>
 #include <vector>
 #include <chrono>
-
+#include "WinApp.h"
 class DirectXCommon
 {
 	public: //メンバ関数
@@ -49,7 +49,7 @@ private:
 	DXGI_SWAP_CHAIN_DESC1 swapChainDesc{};
 	//レンダーターゲットビュー
 	ComPtr<ID3D12DescriptorHeap> rtvHeap;  
-	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers;
+	Microsoft::WRL::std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers;
 	//深度バッファ
 	Microsoft::WRL::ComPtr<ID3D12Resource> depthBuff;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> dsvHeap;

@@ -19,6 +19,13 @@ void DirectXCommon::Initialize(WinApp* winApp)
   
     //FPSŒÅ’è
     InitializeFixFPS();
+    InitializeDevice();
+    InitializeCommand();
+    InitializeSwapchain();
+    InitializeRenderTargetView();
+    InitializeDepthBuffer();
+    InitializeFence();
+}
 }
 void DirectXCommon::PreDraw()
 {
