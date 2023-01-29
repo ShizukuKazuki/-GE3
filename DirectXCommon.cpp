@@ -26,7 +26,7 @@ void DirectXCommon::Initialize(WinApp* winApp)
     InitializeDepthBuffer();
     InitializeFence();
 }
-}
+
 void DirectXCommon::PreDraw()
 {
     //// バックバッファの番号を取得（2つなので0番か1番）

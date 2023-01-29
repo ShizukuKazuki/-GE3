@@ -48,8 +48,9 @@ private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain4> swapChain;
 	DXGI_SWAP_CHAIN_DESC1 swapChainDesc{};
 	//レンダーターゲットビュー
-	ComPtr<ID3D12DescriptorHeap> rtvHeap;  
-	Microsoft::WRL::std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers;
+	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> rtvHeap;
+	std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers;
+	//Microsoft::WRL::std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> backBuffers;
 	//深度バッファ
 	Microsoft::WRL::ComPtr<ID3D12Resource> depthBuff;
 	Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> dsvHeap;

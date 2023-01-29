@@ -6,7 +6,7 @@ using  namespace Microsoft :: WRL;
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
 void Input::Initialize(WinApp* winApp)
-{‚O‚S|‚O‚T
+{
     HRESULT result;
     //ŽØ‚è‚Ä‚«‚½WinApp‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ð‹L˜^
     this->winApp = winApp;
